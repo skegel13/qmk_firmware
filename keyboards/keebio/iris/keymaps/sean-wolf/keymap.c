@@ -13,7 +13,7 @@ uint16_t mod_tab_timer = 0;
 
 void matrix_scan_user(void) {
   if (is_mod_tab_active) {
-    if (timer_elapsed(mod_tab_timer) > 1250) {
+    if (timer_elapsed(mod_tab_timer) > 750) {
       unregister_code(KC_LGUI);
       is_mod_tab_active = false;
     }
@@ -24,9 +24,7 @@ enum custom_keycodes {
   QWERTY = SAFE_RANGE,
   LOWER,
   RAISE,
-  ADJUST,
-  NAV,
-  MOUSE
+  ADJUST
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -146,22 +144,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
       break;
-    case NAV:
-      if (record->event.pressed) {
-        layer_on(_NAV);
-      } else {
-        layer_off(_NAV);
-      }
-      return false;
-      break;
-    case MOUSE:
-      if (record->event.pressed) {
-        layer_on(_MOUSE);
-      } else {
-        layer_off(_MOUSE);
-      }
-      return false;
-      break;
   }
   return true;
 }
@@ -191,15 +173,15 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
         }
     } else if (layer_state_is(_NAV)) {
         if (clockwise) {
-            tap_code_delay(KC_VOLU, 10);
+            tap_code(KC_PGDN);
         } else {
-            tap_code_delay(KC_VOLD, 10);
+            tap_code(KC_PGUP);
         }
     } else if (layer_state_is(_ADJUST)) {
         if (clockwise) {
-            rgb_matrix_increase_speed();
+            tap_code_delay(KC_VOLU, 10);
         } else {
-            rgb_matrix_increase_speed();
+            tap_code_delay(KC_VOLD, 10);
         }
     } else {
         if (clockwise) {
