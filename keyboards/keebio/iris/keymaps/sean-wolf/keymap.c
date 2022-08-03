@@ -15,6 +15,7 @@ void matrix_scan_user(void) {
   if (is_mod_tab_active) {
     if (timer_elapsed(mod_tab_timer) > 750) {
       unregister_code(KC_LGUI);
+      unregister_code(KC_LCTL);
       is_mod_tab_active = false;
     }
   }
@@ -37,7 +38,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      LCTL_T(KC_ESC), KC_A, KC_S, KC_D,   LT(_NAV, KC_F), KC_G,                      KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     LSFT_T(KC_ESC), KC_Z, KC_X, KC_C,   KC_V,    KC_B,    OSM(MOD_HYPR),    TO(_MOUSE),  KC_N,    LT(_ADJUST, KC_M), KC_COMM, KC_DOT, KC_SLSH, KC_SFTENT,
+     LSFT_T(KC_ESC), KC_Z, KC_X, KC_C,   KC_V,    KC_B,    OSM(MOD_HYPR),    LGUI(KC_SPC), KC_N, LT(_ADJUST, KC_M), KC_COMM, KC_DOT, KC_SLSH, KC_SFTENT,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                     KC_LGUI, LOWER,   KC_SFTENT,                 LT(_MOUSE, KC_SPC), RAISE, KC_RAPC
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
@@ -167,9 +168,19 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
         }
     } else if (layer_state_is(_LOWER)) {
         if (clockwise) {
-            tap_code16(C(KC_TAB));
+            if (!is_mod_tab_active) {
+                is_mod_tab_active = true;
+                register_code(KC_LCTL);
+            }
+            mod_tab_timer = timer_read();
+            tap_code16(KC_TAB);
         } else {
-            tap_code16(S(C(KC_TAB)));
+            if (!is_mod_tab_active) {
+                is_mod_tab_active = true;
+                register_code(KC_LCTL);
+            }
+            mod_tab_timer = timer_read();
+            tap_code16(S(KC_TAB));
         }
     } else if (layer_state_is(_NAV)) {
         if (clockwise) {
