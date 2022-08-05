@@ -2,36 +2,6 @@
 #ifdef AUDIO_ENABLE
 #include "muse.h"
 #endif
-#include "eeprom.h"
-#include "keymap_german.h"
-#include "keymap_nordic.h"
-#include "keymap_french.h"
-#include "keymap_spanish.h"
-#include "keymap_hungarian.h"
-#include "keymap_swedish.h"
-#include "keymap_br_abnt2.h"
-#include "keymap_canadian_multilingual.h"
-#include "keymap_german_ch.h"
-#include "keymap_jp.h"
-#include "keymap_korean.h"
-#include "keymap_bepo.h"
-#include "keymap_italian.h"
-#include "keymap_slovenian.h"
-#include "keymap_lithuanian_azerty.h"
-#include "keymap_danish.h"
-#include "keymap_norwegian.h"
-#include "keymap_portuguese.h"
-#include "keymap_contributions.h"
-#include "keymap_czech.h"
-#include "keymap_romanian.h"
-#include "keymap_russian.h"
-#include "keymap_uk.h"
-#include "keymap_estonian.h"
-#include "keymap_belgian.h"
-#include "keymap_us_international.h"
-#include "keymap_croatian.h"
-#include "keymap_turkish_q.h"
-#include "keymap_slovak.h"
 
 #define KC_MAC_UNDO LGUI(KC_Z)
 #define KC_MAC_CUT LGUI(KC_X)
@@ -51,7 +21,6 @@
 #define SE_SECT_MAC ALGR(KC_6)
 
 enum planck_keycodes {
-  RGB_SLD = EZ_SAFE_RANGE,
   ST_MACRO_0,
   ST_MACRO_1,
   ST_MACRO_2,
@@ -83,75 +52,64 @@ enum planck_layers {
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
 
-#define LOWER MO(_LOWER)
-#define RAISE MO(_RAISE)
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [_BASE] = LAYOUT_planck_grid(ALL_T(KC_TAB),KC_Q,KC_W,KC_E,KC_R,KC_T,KC_Y,KC_U,KC_I,KC_O,KC_P,KC_BSPACE,MT(MOD_LCTL, KC_ESCAPE),KC_A,KC_S,KC_D,LT(5,KC_F),KC_G,KC_H,KC_J,KC_K,KC_L,KC_SCOLON,KC_QUOTE,KC_LSHIFT,KC_Z,KC_X,KC_C,KC_V,KC_B,KC_N,LT(7,KC_M),LT(4,KC_COMMA),KC_DOT,KC_SLASH,MT(MOD_RSFT, KC_ENTER),ALL_T(KC_ESCAPE),KC_LCTRL,KC_LALT,KC_LGUI,LOWER,LT(6,KC_SPACE),KC_NO,RAISE,KC_LEFT,KC_DOWN,KC_UP,KC_RIGHT),
+  [_BASE] = LAYOUT_planck_grid(
+    ALL_T(KC_TAB),  KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_BSPACE,
+    MT(MOD_LCTL, KC_ESCAPE),KC_A,           KC_S,           KC_D,           LT(5,KC_F),     KC_G,           KC_H,           KC_J,           KC_K,           KC_L,           KC_SCOLON,      KC_QUOTE,
+    KC_LSHIFT,      KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,           KC_N,           LT(7,KC_M),     LT(4,KC_COMMA), KC_DOT,         KC_SLASH,       MT(MOD_RSFT, KC_ENTER),
+    ALL_T(KC_ESCAPE),KC_LCTRL,       KC_LALT,        KC_LGUI,        LOWER,          LT(6,KC_SPACE), LT(6,KC_SPACE),          RAISE,          KC_LEFT,        KC_DOWN,        KC_UP,          KC_RIGHT
+  ),
 
-  [_LOWER] = LAYOUT_planck_grid(KC_BSPACE,KC_SPACE,KC_NO,KC_NO,KC_NO,ST_MACRO_0,LCTL(KC_GRAVE),KC_LBRACKET,KC_7,KC_8,KC_9,KC_RBRACKET,KC_LGUI,KC_LALT,KC_LCTRL,KC_LSHIFT,KC_TRANSPARENT,LGUI(KC_LBRACKET),LGUI(KC_RBRACKET),KC_EQUAL,KC_4,KC_5,KC_6,KC_SCOLON,KC_LEFT,KC_DOWN,KC_UP,KC_RIGHT,KC_NO,LGUI(LSFT(KC_LBRACKET)),LGUI(LSFT(KC_RBRACKET)),KC_BSLASH,KC_1,KC_2,KC_3,KC_GRAVE,KC_ESCAPE,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_NO,LT(_RAISE, KC_MINUS),KC_0,KC_DOT,KC_NO,KC_ESCAPE),
+  [_LOWER] = LAYOUT_planck_grid(
+    KC_BSPACE,      KC_SPACE,       KC_NO,          KC_NO,          KC_NO,          _______,     LCTL(KC_GRAVE), KC_LBRACKET,    KC_7,           KC_8,           KC_9,           KC_RBRACKET,
+    KC_LGUI,        KC_LALT,        KC_LCTRL,       KC_LSHIFT,      _______, LGUI(KC_LBRACKET),LGUI(KC_RBRACKET),KC_EQUAL,       KC_4,           KC_5,           KC_6,           KC_SCOLON,
+    KC_LEFT,        KC_DOWN,        KC_UP,          KC_RIGHT,       KC_NO,          LGUI(LSFT(KC_LBRACKET)),LGUI(LSFT(KC_RBRACKET)),KC_BSLASH,      KC_1,           KC_2,           KC_3,           KC_GRAVE,
+    KC_ESCAPE,      _______, _______, _______, _______, _______, _______,          LT(_RAISE, KC_MINUS),KC_0,           KC_DOT,         KC_NO,          KC_ESCAPE
+  ),
 
-  [_RAISE] = LAYOUT_planck_grid(KC_LCBR,KC_AMPR,KC_ASTR,KC_LPRN,KC_RCBR,ST_MACRO_1,ST_MACRO_2,KC_NO,KC_NO,KC_NO,KC_SPACE,KC_BSPACE,KC_COLN,KC_DLR,KC_PERC,KC_CIRC,KC_PLUS,ST_MACRO_3,ST_MACRO_4,KC_NO,KC_LSHIFT,KC_LCTRL,KC_LALT,KC_LGUI,KC_TILD,KC_EXLM,KC_AT,KC_HASH,KC_PIPE,ST_MACRO_5,ST_MACRO_6,KC_NO,KC_LEFT,KC_DOWN,KC_UP,KC_RIGHT,KC_TRANSPARENT,KC_TRANSPARENT,KC_LPRN,KC_RPRN,TD(DANCE_0),KC_TRANSPARENT,KC_NO,KC_TRANSPARENT,KC_NO,KC_NO,KC_NO,KC_ESCAPE),
+  [_RAISE] = LAYOUT_planck_grid(
+    KC_LCBR,        KC_AMPR,        KC_ASTR,        KC_LPRN,        KC_RCBR,        _______,     _______,     KC_NO,          KC_NO,          KC_NO,          KC_SPACE,       KC_BSPACE,
+    KC_COLN,        KC_DLR,         KC_PERC,        KC_CIRC,        KC_PLUS,        _______,     _______,     KC_NO,          KC_LSHIFT,      KC_LCTRL,       KC_LALT,        KC_LGUI,
+    KC_TILD,        KC_EXLM,        KC_AT,          KC_HASH,        KC_PIPE,        _______,     _______,     KC_NO,          KC_LEFT,        KC_DOWN,        KC_UP,          KC_RIGHT,
+    _______, _______, KC_LPRN,        KC_RPRN,        TD(DANCE_0),    _______, _______,          _______, _______,          KC_NO,          KC_NO,          KC_ESCAPE
+  ),
 
-  [_ADJUST] = LAYOUT_planck_grid(AU_OFF,AU_ON,MU_OFF,MU_ON,MU_MOD,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,RESET,RGB_SPD,RGB_SPI,RGB_VAD,RGB_VAI,RGB_TOG,KC_NO,KC_NO,KC_MEDIA_PREV_TRACK,KC_MEDIA_NEXT_TRACK,KC_AUDIO_VOL_DOWN,KC_AUDIO_VOL_UP,KC_MEDIA_PLAY_PAUSE,RGB_HUD,RGB_HUI,RGB_SAD,RGB_SAI,RGB_MOD,KC_NO,KC_NO,KC_NO,KC_TRANSPARENT,KC_NO,KC_NO,KC_NO,WEBUSB_PAIR,KC_NO,KC_NO,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_NO,KC_TRANSPARENT,KC_NO,KC_NO,KC_NO,RESET),
+  [_ADJUST] = LAYOUT_planck_grid(
+    AU_OFF,         AU_ON,          MU_OFF,         MU_ON,          MU_MOD,         KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          RESET,
+    RGB_SPD,        RGB_SPI,        RGB_VAD,        RGB_VAI,        RGB_TOG,        KC_NO,          KC_NO,          KC_MEDIA_PREV_TRACK,KC_MEDIA_NEXT_TRACK,KC_AUDIO_VOL_DOWN,KC_AUDIO_VOL_UP,KC_MEDIA_PLAY_PAUSE,
+    RGB_HUD,        RGB_HUI,        RGB_SAD,        RGB_SAI,        RGB_MOD,        KC_NO,          KC_NO,          KC_NO,          _______, KC_NO,          KC_NO,          KC_NO,
+    _______,    KC_NO,          KC_NO,          _______, _______, _______, _______,          _______, _______,          KC_NO,          KC_NO,          RESET
+  ),
 
-  [_LAYER4] = LAYOUT_planck_grid(KC_F12,KC_F7,KC_F8,KC_F9,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_F11,KC_F4,KC_F5,KC_F6,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_LSHIFT,KC_LCTRL,KC_LALT,KC_LGUI,KC_F10,KC_F1,KC_F2,KC_F3,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_CAPSLOCK,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_NO,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_CAPSLOCK),
+  [_LAYER4] = LAYOUT_planck_grid(
+    KC_F12,         KC_F7,          KC_F8,          KC_F9,          _______, _______, _______, _______, _______, _______, _______, _______,
+    KC_F11,         KC_F4,          KC_F5,          KC_F6,          _______, _______, _______, _______, KC_LSHIFT,      KC_LCTRL,       KC_LALT,        KC_LGUI,
+    KC_F10,         KC_F1,          KC_F2,          KC_F3,          _______, _______, _______, _______, _______, _______, _______, _______,
+    KC_CAPSLOCK,    _______, _______, _______, _______, _______, _______,          _______, _______, _______, _______, KC_CAPSLOCK
+  ),
 
-  [_LAYER5] = LAYOUT_planck_grid(KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,LCTL(KC_LEFT),LCTL(KC_DOWN),LCTL(KC_UP),LCTL(KC_RIGHT),KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,TD(DANCE_1),TD(DANCE_2),TD(DANCE_3),TD(DANCE_4),KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,LGUI(KC_LEFT),LGUI(KC_DOWN),LGUI(KC_UP),LGUI(KC_RIGHT),KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_NO,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT),
+  [_LAYER5] = LAYOUT_planck_grid(
+    _______, _______, _______, _______, _______, _______, LCTL(KC_LEFT),  LCTL(KC_DOWN),  LCTL(KC_UP),    LCTL(KC_RIGHT), _______, _______,
+    _______, _______, _______, _______, _______, _______, TD(DANCE_1),    TD(DANCE_2),    TD(DANCE_3),    TD(DANCE_4),    _______, _______,
+    _______, _______, _______, _______, _______, _______, LGUI(KC_LEFT),  LGUI(KC_DOWN),  LGUI(KC_UP),    LGUI(KC_RIGHT), _______, _______,
+    _______, _______, _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______
+  ),
 
-  [_LAYER6] = LAYOUT_planck_grid(KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_LGUI,KC_LALT,KC_LCTRL,KC_LSHIFT,KC_TRANSPARENT,KC_TRANSPARENT,KC_MS_LEFT,KC_MS_DOWN,KC_MS_UP,KC_MS_RIGHT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_MS_WH_LEFT,KC_MS_WH_DOWN,KC_MS_WH_UP,KC_MS_WH_RIGHT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_NO,KC_MS_BTN1,KC_MS_BTN2,KC_MS_BTN3,KC_TRANSPARENT,KC_TRANSPARENT),
+  [_LAYER6] = LAYOUT_planck_grid(
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+    KC_LGUI,        KC_LALT,        KC_LCTRL,       KC_LSHIFT,      _______, _______, KC_MS_LEFT,     KC_MS_DOWN,     KC_MS_UP,       KC_MS_RIGHT,    _______, _______,
+    _______, _______, _______, _______, _______, _______, KC_MS_WH_LEFT,  KC_MS_WH_DOWN,  KC_MS_WH_UP,    KC_MS_WH_RIGHT, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______,          KC_MS_BTN1,     KC_MS_BTN2,     KC_MS_BTN3,     _______, _______
+  ),
 
-  [_LAYER7] = LAYOUT_planck_grid(KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_AUDIO_VOL_DOWN,KC_AUDIO_VOL_UP,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_MEDIA_PREV_TRACK,KC_MEDIA_NEXT_TRACK,KC_MEDIA_PLAY_PAUSE,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_NO,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT),
+  [_LAYER7] = LAYOUT_planck_grid(
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, KC_AUDIO_VOL_DOWN,KC_AUDIO_VOL_UP,_______, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, KC_MEDIA_PREV_TRACK,KC_MEDIA_NEXT_TRACK,KC_MEDIA_PLAY_PAUSE,_______,
+    _______, _______, _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______
+  ),
 
 };
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-switch (keycode) {
-    case ST_MACRO_0:
-    if (record->event.pressed) {
-      SEND_STRING(SS_LGUI(SS_TAP(X_K)) SS_DELAY(100) SS_LGUI(SS_TAP(X_R)));
-
-    }
-    break;
-    case ST_MACRO_1:
-    if (record->event.pressed) {
-      SEND_STRING(SS_LSFT(SS_TAP(X_LBRACKET)) SS_DELAY(100) SS_LSFT(SS_TAP(X_RBRACKET)) SS_DELAY(100) SS_TAP(X_LEFT));
-
-    }
-    break;
-    case ST_MACRO_2:
-    if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_GRAVE) SS_DELAY(100) SS_TAP(X_GRAVE) SS_DELAY(100) SS_TAP(X_LEFT));
-
-    }
-    break;
-    case ST_MACRO_3:
-    if (record->event.pressed) {
-      SEND_STRING(SS_LSFT(SS_TAP(X_9)) SS_DELAY(100) SS_LSFT(SS_TAP(X_0)) SS_DELAY(100) SS_TAP(X_LEFT));
-
-    }
-    break;
-    case ST_MACRO_4:
-    if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_EQUAL) SS_DELAY(100) SS_LSFT(SS_TAP(X_DOT)));
-
-    }
-    break;
-    case ST_MACRO_5:
-    if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_LBRACKET) SS_DELAY(100) SS_TAP(X_RBRACKET) SS_DELAY(100) SS_TAP(X_LEFT));
-
-    }
-    break;
-    case ST_MACRO_6:
-    if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_MINUS) SS_DELAY(100) SS_LSFT(SS_TAP(X_DOT)));
-
-    }
-    break;
-}
-return true;
-}
 
 #ifdef AUDIO_ENABLE
 bool muse_mode = false;
@@ -441,4 +399,3 @@ qk_tap_dance_action_t tap_dance_actions[] = {
         [DANCE_3] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_3, dance_3_finished, dance_3_reset),
         [DANCE_4] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_4, dance_4_finished, dance_4_reset),
 };
-
