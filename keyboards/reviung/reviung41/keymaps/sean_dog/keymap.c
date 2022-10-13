@@ -20,7 +20,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [_LOWER] = LAYOUT_reviung41(
-    _______,  KC_GRV,   KC_TILD,  KC_LPRN,  KC_RPRN,   KC_EXLM,            SGUI(KC_LBRC), SGUI(KC_RBRC), LGUI(KC_LBRC), LGUI(KC_RBRC), _______, KC_DEL,
+    _______,  KC_GRV,   KC_TILD,  KC_LPRN,  KC_RPRN,   KC_BSLS,            SGUI(KC_LBRC), SGUI(KC_RBRC), LGUI(KC_LBRC), LGUI(KC_RBRC), _______, KC_DEL,
     _______,  KC_MINS,  KC_EQL,   KC_LCBR,  KC_RCBR,   KC_PIPE,            KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  LCTL_T(_______), LGUI_T(_______),
     _______,  KC_UNDS,  KC_PLUS,  KC_LBRC,  KC_RBRC,   KC_DLR,             KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   _______, RSFT_T(KC_SPC),
                                             _______,   _______,  KC_ENT,   _______,  _______
