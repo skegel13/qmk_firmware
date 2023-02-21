@@ -1,0 +1,9 @@
+{
+    "formatter.prettier.enabled": false,
+    "[cpp]": {
+    "formatter.prettier.enabled": false,
+    },
+    "[c]": {
+    "formatter.prettier.enabled": false,
+    },
+}
