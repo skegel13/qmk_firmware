@@ -51,7 +51,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, KC_UP,   KC_PGUP,                            OSM(MOD_HYPR), KC_EQL, KC_4, KC_5,  KC_6,    KC_SCLN,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     LGUI(KC_LEFT), LGUI(KC_RGHT), KC_LEFT, KC_RIGHT, KC_DOWN, KC_PGDN, KC_LPRN, KC_RPRN, _______, KC_BSLS, KC_1, KC_2,   KC_3,    KC_GRV,
+     LGUI(KC_LEFT), LGUI(KC_RGHT), KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, KC_LPRN, KC_RPRN, _______, KC_BSLS, KC_1, KC_2,   KC_3,    KC_GRV,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                     _______, _______, KC_DEL,                    KC_DEL,  ADJUST,  KC_0
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
@@ -63,9 +63,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      KC_LCBR, KC_AMPR, KC_ASTR, KC_LPRN, KC_RCBR, _______,                            SGUI(KC_LBRC), SGUI(KC_RBRC), LGUI(KC_LBRC), LGUI(KC_RBRC), KC_DEL, KC_BSPC,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_COLN, KC_DLR,  KC_PERC, KC_CIRC, KC_PLUS, _______,                            KC_WH_U, KC_MS_U, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT,
+     KC_COLN, KC_DLR,  KC_PERC, KC_CIRC, KC_PLUS, _______,                            KC_MS_BTN1, KC_MS_U, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_PIPE, _______, KC_LPRN,          KC_RPRN, KC_WH_D, KC_MS_D, KC_MS_L, KC_MS_R, KC_BTN1, KC_BTN2,
+     KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_PIPE, _______, KC_LPRN,          KC_RPRN, KC_MS_L, KC_MS_D, KC_MS_R, KC_MS_BTN2, KC_WH_U, KC_WH_D,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                     KC_RPRN, ADJUST,  _______,                   _______, _______, _______
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
