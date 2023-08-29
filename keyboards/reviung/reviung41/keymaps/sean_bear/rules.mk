@@ -1,5 +1,3 @@
-MCU = atmega32u4
-BOOTLOADER = atmel-dfu
 MOUSEKEY_ENABLE = yes
 CONSOLE_ENABLE = no
 COMMAND_ENABLE = no
