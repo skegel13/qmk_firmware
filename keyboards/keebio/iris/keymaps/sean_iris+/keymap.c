@@ -12,8 +12,8 @@ enum custom_keycodes {
   NAV
 };
 
-#define LOWER MO(_LOWER)
-#define RAISE MO(_RAISE)
+#define LOWER LT(_LOWER, KC_BSPC)
+#define RAISE LT(_RAISE, KC_SPC)
 #define ADJUST MO(_ADJUST)
 #define NAVENT LT(_NAV, KC_ENT)
 #define NAVSPC LT(_NAV, KC_SPC)
@@ -40,7 +40,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      _______, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                               KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______,  _______, KC_LEFT, KC_RGHT, KC_UP,   KC_LBRC,                           KC_RBRC, KC_4,    KC_5,    KC_6,    KC_PLUS, KC_PIPE,
+     _______,  _______, KC_LEFT, KC_RGHT, KC_UP,  KC_LBRC,                            KC_RBRC, KC_4,    KC_5,    KC_6,    KC_PLUS, KC_PIPE,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      _______, _______, _______, _______, KC_DOWN, KC_LCBR, KC_LPRN,          KC_MPLY, KC_RCBR, KC_1,    KC_2,    KC_3,    KC_MINS, _______,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
