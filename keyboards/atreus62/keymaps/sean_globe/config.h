@@ -1,0 +1,7 @@
+#pragma once
+
+#define TAPPING_TERM 175
+#define TAPPING_FORCE_HOLD
+#define AUTO_SHIFT_TIMEOUT 150
+#define AUTO_SHIFT_NO_SETUP
+#define NO_AUTO_SHIFT_ALPHA
