@@ -9,17 +9,35 @@
 #define RAISE LT(_RAISE, KC_SPC)
 #define ADJUST MO(_ADJUST)
 
+#define TAB ALL_T(KC_TAB)
+#define ESC_CTL CTL_T(KC_ESC)
+
+// Left-hand home row mods
+#define HOME_A CTL_T(KC_A)
+#define HOME_S OPT_T(KC_S)
+#define HOME_D CMD_T(KC_D)
+#define HOME_F SFT_T(KC_F)
+
+// Right-hand home row mods
+#define HOME_J SFT_T(KC_J)
+#define HOME_K CMD_T(KC_K)
+#define HOME_L OPT_T(KC_L)
+#define HOME_SCLN CTL_T(KC_SCLN)
+
+// Raycast
+#define RAY LCMD(KC_SPC)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_QWERTY] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
      KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                               KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSLS,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     ALL_T(KC_TAB), KC_Q, KC_W, KC_E,    KC_R,    KC_T,                               KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
+     TAB,     KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                               KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     CTL_T(KC_ESC), CTL_T(KC_A), OPT_T(KC_S), CMD_T(KC_D), SFT_T(KC_F), KC_G,         KC_H,    SFT_T(KC_J), CMD_T(KC_K),  OPT_T(KC_L), CTL_T(KC_SCLN), KC_QUOT,
+     ESC_CTL, HOME_A,  HOME_S,  HOME_D,  HOME_F,  KC_G,                               KC_H,    HOME_J,  HOME_K,  HOME_L,  HOME_SCLN, KC_QUOT,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    G(KC_SPC),        KC_MPLY, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, SC_SENT,
+     KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    RAY,              KC_MPLY, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, SC_SENT,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                     KC_LCMD, LOWER,   CTL_T(KC_TAB),             SFT_T(KC_BSPC), RAISE, KC_ROPT
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
@@ -47,7 +65,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      _______, KC_LCBR, KC_RCBR, KC_UNDS, KC_PLUS, KC_PIPE,                            KC_MINS, KC_LSFT, KC_LCMD, KC_LOPT, KC_LCTL, KC_ESC,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, KC_RBRC, KC_RBRC, KC_MINS, KC_EQL,  KC_BSLS,  C(G(KC_SPC)),    _______, KC_EQL,  KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY, _______,
+     _______, KC_LBRC, KC_RBRC, KC_MINS, KC_EQL,  KC_BSLS, C(G(KC_SPC)),     _______, KC_EQL,  KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY, _______,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                     _______, _______, _______,                   _______, _______, _______
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
