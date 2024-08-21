@@ -29,11 +29,11 @@ enum planck_layers {
 #define H_LPRN SFT_T(KC_LPRN)
 
 // Right-hand home row mods
+#define HOME_H ALL_T(KC_H)
 #define HOME_J SFT_T(KC_J)
 #define HOME_K CMD_T(KC_K)
 #define HOME_L OPT_T(KC_L)
 #define HOME_SC CTL_T(KC_SCLN)
-#define HOME_H ALL_T(KC_H)
 #define H_4 SFT_T(KC_4)
 #define H_5 CMD_T(KC_5)
 #define H_6 OPT_T(KC_6)

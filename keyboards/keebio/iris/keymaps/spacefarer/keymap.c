@@ -17,14 +17,14 @@
 #define HOME_S OPT_T(KC_S)
 #define HOME_D CMD_T(KC_D)
 #define HOME_F SFT_T(KC_F)
-#define HOME_H ALL_T(KC_H)
+#define HOME_G ALL_T(KC_G)
 
 // Right-hand home row mods
+#define HOME_H ALL_T(KC_H)
 #define HOME_J SFT_T(KC_J)
 #define HOME_K CMD_T(KC_K)
 #define HOME_L OPT_T(KC_L)
 #define HOME_SC CTL_T(KC_SCLN)
-#define HOME_G ALL_T(KC_G)
 
 // Lower modifiers
 #define LOW_EQL CTL_T(KC_EQL)
