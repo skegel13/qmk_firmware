@@ -52,10 +52,6 @@
 #define SFT_BPC SFT_T(KC_BSPC)
 #define SFT_DEL SFT_T(KC_DEL)
 #define EMOJI C(G(KC_SPC))
-#define BACK G(KC_LBRC)
-#define FORWARD G(KC_RBRC)
-#define PRV_TAB S(G(KC_LBRC))
-#define NXT_TAB S(G(KC_RBRC))
 
 // Cut, Copy, Paste
 #define CUT LT(_QWERTY, KC_X)
