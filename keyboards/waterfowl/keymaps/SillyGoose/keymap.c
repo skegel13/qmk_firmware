@@ -84,7 +84,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                      KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,
     HOME_A,  HOME_S,  HOME_D,  HOME_F,  HOME_G,                    HOME_H,  HOME_J,  HOME_K,  HOME_L,  HOME_SC,
     KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                      KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,
-             KC_1,    EMOJI,   LOWER,   CTL_TAB, RAYCAST, KC_MPLY, SFT_BPC, RAISE,   TERM,    KC_4
+             KC_1,    LOWER,   CTL_TAB, CTL_TAB, RAYCAST, KC_MPLY, SFT_BPC, SFT_BPC, RAISE,   KC_4
 	      /* XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX */
 ),
 
@@ -92,14 +92,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                   KC_7,    KC_8,    KC_9,    KC_MINS, KC_SLASH,
     L_A,     L_S,     L_D,     SC_LSPO, L_G,                       KC_4,    KC_5,    KC_6,    KC_PLUS, KC_ASTR,
     KC_GRV,  KC_LBRC, KC_RBRC, KC_LCBR, KC_RCBR,                   KC_1,    KC_2,    KC_3,    KC_DOT,  KC_EQL,
-	         _______, _______, _______, _______, _______, _______, ESC_HYP, ADJ_0,   KC_0,    _______
+	         _______, _______, _______, _______, _______, _______, ESC_HYP, ESC_HYP, ADJ_0,    _______
 ),
 
 [_RAISE] = LAYOUT(
     CW_TOGG, PRV_TAB, NXT_TAB, BACK,    FORWARD,                   KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, KC_MPLY,
     R_A,     R_S,     R_D,     R_F ,    R_G,                       KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_QUOT,
     XXXXXXX, KC_TILD, KC_PLUS, KC_UNDS, KC_PIPE,                   KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_DQUO,
-	         _______, _______, ADJUST,  ESC_HYP, THINGS, _______, _______, _______, _______, _______
+	         _______, ADJUST,  ESC_HYP, ESC_HYP, THINGS,  _______, _______, _______, _______, _______
 ),
 
 [_ADJUST] =  LAYOUT(
