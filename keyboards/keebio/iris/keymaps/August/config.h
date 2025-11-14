@@ -1,0 +1,7 @@
+#pragma once
+
+#define AUTO_SHIFT_TIMEOUT 150
+#define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
+#define EE_HANDS
+#define NO_AUTO_SHIFT_ALPHA
+#define TAPPING_TERM 175
