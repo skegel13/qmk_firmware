@@ -9,6 +9,13 @@ enum layer_names {
 };
 
 /* Thumb Keys */
+#define THUMB_LO LT(_NUMBERS, KC_ENT)
+#define THUMB_LM LT(_SYMBOLS, KC_TAB)
+#define THUMB_LI LT(_SYMBOLS, KC_ESC)
+#define THUMB_RI SFT_T(KC_DEL)
+#define THUMB_RM SFT_T(KC_BSPC)
+#define THUMB_RO LT(_NAV, KC_SPC)
+
 #define NUMBER LT(_NUMBERS, KC_ENT)
 #define SYMBOL LT(_SYMBOLS, KC_TAB)
 #define NAV LT(_NAV, KC_SPC)
@@ -70,7 +77,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                      KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,
         HOME_A,  HOME_S,  HOME_D,  HOME_F,  HOME_G,                    HOME_H,  HOME_J,  HOME_K,  HOME_L,  HOME_SC,
         KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                      KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,
-                 KC_1,    NUMBER,  SYMBOL,  KC_ESC,  RAYCAST,  CLIP,   KC_ESC,  SFT_BSP, NAV,     KC_4
+                 KC_1,    THUMB_LO,THUMB_LM,THUMB_LI,RAYCAST, CLIP,    THUMB_RI,THUMB_RM,THUMB_RO,KC_4
               /* XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX */
     ),
 
@@ -79,7 +86,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                      KC_6,    KC_7,    KC_8,    KC_9,    KC_0,
         OS_LCTL, OS_LALT, OS_LGUI, OS_LSFT, OS_HYPR,                   KC_UNDS, KC_4,    KC_5,    KC_6,    KC_QUOT,
         KC_F11,  KC_F12,  _______, _______, KC_ESC,                    KC_0,    KC_1,    KC_2,    KC_3,    KC_UNDS,
-                 KC_1,    _______, _______, _______, _______, TERM,    SFT_DEL, SFT_DEL, MOUSE_R, KC_4
+                 KC_1,    _______, _______, _______, _______, TERM,    SFT_DEL, MOUSE_R, MOUSE_R, KC_4
               /* XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX */
     ),
 
@@ -88,16 +95,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                   KC_CIRC, KC_AMPR, KC_ASTR, KC_PLUS, KC_EQL,
         OS_LCTL, OS_LALT, OS_LGUI, OS_LSFT, OS_HYPR,                   KC_MINS, KC_LPRN, KC_LCBR, KC_LBRC, KC_QUOT,
         KC_BSLS, KC_PIPE, KC_TILD, KC_GRV,  KC_ESC,                    KC_UNDS, KC_RPRN, KC_RCBR, KC_RBRC, KC_DQUO,
-                 KC_1,    _______, _______, _______, _______, TERM,    SFT_DEL, SFT_DEL, KC_ESC,  KC_4
+                 KC_1,    _______, _______, _______, _______, TERM,    SFT_DEL, SFT_DEL, MOUSE_R,  KC_4
               /* XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX */
     ),
 
     [_NAV] = LAYOUT(
      /* XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, */
-        KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY, _______,                   PRV_TAB, BACK,    FORWARD, NXT_TAB, _______,
+        KC_MPRV, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY,                   PRV_TAB, BACK,    FORWARD, NXT_TAB, _______,
         OS_LCTL, OS_LALT, OS_LGUI, OS_LSFT, OS_HYPR,                   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_QUOT,
         _______, _______, _______, _______, KC_ESC,                    KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_DQUO,
-                 KC_1,    MOUSE_L, KC_ESC,  KC_ESC,  EMOJI2,  TERM,    _______, _______, _______, KC_4
+                 KC_1,    MOUSE_L, MOUSE_L,  KC_ESC,  EMOJI2,  TERM,    _______, _______, _______, KC_4
               /* XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX */
     ),
 
